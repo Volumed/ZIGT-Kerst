@@ -89,7 +89,7 @@
                     </figure>
                   </div>
                   <p>Kinderfonds MAMAS steunt de MAMAS van Zuid-Afrika: sterke, indrukwekkende vrouwen die opstaan voor kinderen in ernstige armoede. Deze vrouwen organiseren zelf dagelijkse zorg, bescherming, eten, warmte en liefde voor nu al 50.000 kinderen in 50 prachtige projecten.</p>
-                  <a @click="giveVoteOptionOne()" class="button is-primary m-t-lg m-b-md">Stem</a>
+                  <a @click="giveVoteOptionOne()" class="button is-primary m-t-lg m-b-md">Doneer €50,-</a>
                 </div> 
                 <div class="column votecolumn">
                   <div class="column is-paddingless">
@@ -98,7 +98,7 @@
                     </figure>
                   </div>
                   <p>Wist u dat 9 van de 10 kinderen met een handicap niet naar school gaat? Veel hè? Vaak is schoolgeld of zoiets simpels als een toegankelijk toilet het grootste struikelblok. Voor 120 euro kunnen wij een kind een jaar lang helpen, bijvoorbeeld door schoolgeld te betalen. Helpt u mee? Elke euro maakt verschil.</p>
-                  <a @click="giveVoteOptionTwo()" class="button is-primary m-t-lg m-b-md">Stem</a>
+                  <a @click="giveVoteOptionTwo()" class="button is-primary m-t-lg m-b-md">Doneer €50,-</a>
                 </div>
                 <div class="column votecolumn">
                   <div class="column is-paddingless">
@@ -107,7 +107,7 @@
                     </figure>
                   </div>
                   <p>Jaarlijks krijgen vele door mensen mishandelde en verwaarloosde apen en exotische zoogdieren een nieuw leven bij Stichting AAP. De dieren die bij AAP binnenkomen zijn er vaak slecht aan toe en hebben deskundige en liefdevolle zorg nodig: eten, een schoon verblijf, medische zorg en vooral veel aandacht. Wij helpen de dieren weer dier te kunnen worden. Zo krijgen zij de tweede kans geven die ze zo verdienen. </p>
-                  <a @click="giveVoteOptionThree()" class="button is-primary m-t-lg m-b-md">Stem</a>
+                  <a @click="giveVoteOptionThree()" class="button is-primary m-t-lg m-b-md">Doneer €50,-</a>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@
       </div>
 
       <div class="zigtstudio">
-        <a href="https://github.com/Volumed/ZIGT-Kerst" target="_blank" rel="noopener noreferrer"><img src="dist/assets/github.svg"></a> Door <a href="http://zigtstudio.nl/" target="_blank" rel="noopener noreferrer">ZIGT Studio</a>
+        <a href="https://github.com/Volumed/ZIGT-Kerst" target="_blank" rel="noopener noreferrer"><img src="dist/assets/github.svg"></a> Door <a href="https://zigtstudio.nl/" target="_blank" rel="noopener noreferrer">ZIGT Studio</a>
       </div>
     </section>
   </div>
@@ -189,7 +189,7 @@
             this.loading = true;
 
             this.entireCode = this.codeOne + this.codeTwo + this.codeThree + this.codeFour + this.codeFive + this.codeSix;
-            axios.get(`../../checkCode.php?code=${this.entireCode}`)
+            axios.get(`../../checkCode.php?code=${this.entireCode}&timestamp=${new Date().getTime()}`)
             .then((response)  =>  {
               this.loading = false;
               if(response.data.code == 200) {
@@ -257,7 +257,7 @@
       },
       giveVoteOptionOne() {
           this.loading = true;
-          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=0`)
+          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=0&timestamp=${new Date().getTime()}`)
           .then((response)  =>  {
             this.loading = false;
             if (response.data.code == 200) {
@@ -273,7 +273,7 @@
       },
       giveVoteOptionTwo() {
           this.loading = true;
-          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=1`)
+          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=1&timestamp=${new Date().getTime()}`)
           .then((response)  =>  {
             this.loading = false;
             if (response.data.code == 200) {
@@ -289,7 +289,7 @@
       },
       giveVoteOptionThree() {
           this.loading = true;
-          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=2`)
+          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=2&timestamp=${new Date().getTime()}`)
           .then((response)  =>  {
             this.loading = false;
             if (response.data.code == 200) {
