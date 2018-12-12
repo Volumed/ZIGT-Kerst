@@ -1,0 +1,22 @@
+{
+  "name": "zigtkerst",
+  "version": "1.0.0",
+  "description": "Een ZIGT kerst app.",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "author": "Alexander Bekkerin",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-mix": "^3.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bulma": "^0.7.2",
+    "es6-promise": "^4.2.5",
+    "vue": "^2.5.17"
+  }
+}
