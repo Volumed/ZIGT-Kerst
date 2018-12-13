@@ -1,5 +1,5 @@
 <?php
-    $id = intval($_GET['code']);
+    $id = $_GET['code'];
     $charity = intval($_GET['charity']);
 
     if (strlen($id)>=6 && strlen($id)<=6) {
@@ -24,21 +24,21 @@
 
         $link = mysqli_connect($servername, $username, $password, $db);
 
-        $sql = "SELECT * FROM `app_people_list` WHERE `code` = $id";
+        $sql = "SELECT * FROM `app_list_people` WHERE code = $id";
         $result = mysqli_query( $link, $sql ); 
         $row = mysqli_fetch_array( $result );
 
-        if ($row['voted'] == "false") {
-            $addvote = "UPDATE app_chooses_list SET votes=votes+1 WHERE id = $charity";
+        if ($row['voted'] == 0) {
+            $addvote = "UPDATE `app_chooses_list` SET votes=votes+1 WHERE id = $charity";
             $resultaddvote = mysqli_query( $link, $addvote ); 
 
             if ($resultaddvote == true) {
-                $updatevoted = "UPDATE app_people_list SET voted='true' WHERE code = $id";
+                $updatevoted = "UPDATE `app_list_people` SET voted=1 WHERE code = $id";
                 $resultvoted = mysqli_query( $link, $updatevoted ); 
                 if ($resultvoted == true) {
                     echo json_response(200, 'succes');
                 } else {
-                    echo json_response(422, 'voted not changed'); 
+                    echo json_response(422, 'voted not changed');
                 }
             } else {
                 echo json_response(422, 'vote not added');

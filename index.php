@@ -6,11 +6,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ZIGT - Kerst</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
         <link rel="stylesheet" href="./dist/css/app.css">
         <link rel="stylesheet" href="https://use.typekit.net/ppo1cda.css">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <!--[if lt IE 10]>

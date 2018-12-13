@@ -67,7 +67,7 @@ $positions: (('t', 'top'),
 body {
     font-family: $museo;
     font-weight: $normal;
-    font-size: 14px;
+    font-size: 16px;
     color: $zigtgray;
 }
 
@@ -271,7 +271,7 @@ input.code {
 }
 
 .title {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: $normal;
     color: $zigtgray;
     line-height: auto;
@@ -291,13 +291,13 @@ input.code {
     position: relative;
     height: auto;
     opacity: 1;
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.5rem 8rem;
     transform: scale(1);
 }
 
 #codepage {
     @media screen and (min-width: $large) {
-        padding: 8rem 1.5rem 0rem;
+        padding: 8rem 1.5rem 8rem;
     }    
 }
 
@@ -488,7 +488,9 @@ $bg: rgba(125,167,217, .90);  // background
 .social {
     width: 100%;
     text-align: center;
-    margin-bottom: 4rem;
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
     z-index: 50;
     img {
         display: inline-block;
@@ -498,6 +500,37 @@ $bg: rgba(125,167,217, .90);  // background
     @media screen and (min-width: $large) {
         text-align: right;
         padding-right: 2rem;
-        margin-bottom: 2rem;
+        bottom: 2rem;
+    }
+}
+
+.end {
+
+}
+
+.lang {
+    z-index: 50;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 100%;
+    text-align: left;
+    a {
+        color: $zigtblue;
+        text-decoration: underline;
+    }
+    @media screen and (min-width: $large) {
+        bottom: 1rem;
+        left: 1rem;
+        text-align: left;
+    }
+}
+
+.endblock {
+    background-color: white;
+    text-align: center;
+    .end {
+        width: 100%;
+        font-size: 24px;
     }
 }

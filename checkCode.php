@@ -1,5 +1,5 @@
 <?php
-    $id = intval($_GET['code']);
+    $id = $_GET['code'];
 
     if (strlen($id)>=6 && strlen($id)<=6) {
 
@@ -25,13 +25,12 @@
 
         if ($link) {
 
-            $sql = "SELECT * FROM `app_people_list` WHERE `code` = $id";
+            $sql = "SELECT * FROM `app_list_people` WHERE code = $id";
             $result = mysqli_query( $link, $sql ); 
             $row = mysqli_fetch_array( $result );
 
             if($row) {
-                $recordArray = '{"code":'.$row['code'].',"name":"'.$row['name'].'","voted":'.$row['voted'].'}';
-                echo json_response(200, json_decode($recordArray));
+                echo json_response(200, array_splice($row, 2, 6));
             } else {
                 echo json_response(404, 'no record found');
             }

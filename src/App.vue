@@ -42,19 +42,19 @@
               <br>
               <p>Dit jaar hebben we besloten om namens onze klanten en relaties een donatie te doen aan een aantal door ons gekozen goede doelen.</p>
               <br>
-              <p>Op de kerstkaart die je van ons hebt ontvangen staat een code. Vul jullie unieke code hieronder in en laat weten welk goed doel jullie zouden willen steunen. ZIGT zorgt er vervolgens voor dat dit goede doel een donatie ontvangt van €50,-.</p>
+              <p>Op de kerstkaart die je van ons hebt ontvangen staat een code. Vul je unieke code hieronder in en laat weten welk goed doel jullie zouden willen steunen. ZIGT zorgt er vervolgens voor dat dit goede doel een donatie ontvangt van €50,-.</p>
               <br>
-              <p>Let op: je kunt je code uiterlijk tot 31 december invoeren!
+              <p>Let op: je kunt je code uiterlijk tot 31 december invoeren!</p>
               <div class="m-t-lg m-b-lg">
                 <div class="columns is-mobile is-1 is-variable">
                   <div class="column has-text-centered">
                     <form>
-                      <input class="code" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="text" v-on:input="checkCode" :maxlength="max" v-model="codeOne" pattern="([0123456789])\w{0}">
-                      <input class="code" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="text" v-on:input="checkCode" :maxlength="max" v-model="codeTwo" pattern="([0123456789])\w{0}">
-                      <input class="code" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="text" v-on:input="checkCode" :maxlength="max" v-model="codeThree" pattern="([0123456789])\w{0}">
-                      <input class="code" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="text" v-on:input="checkCode" :maxlength="max" v-model="codeFour" pattern="([0123456789])\w{0}">
-                      <input class="code" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="text" v-on:input="checkCode" :maxlength="max" v-model="codeFive" pattern="([0123456789])\w{0}">
-                      <input class="code" autocomplete="off" type="text" v-on:input="checkCode" :maxlength="max" v-model="codeSix" pattern="([0123456789])\w{0}">
+                      <input class="code" ref="codeOne" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="tel" v-on:input="checkCode" :maxlength="max" v-model="codeOne" pattern="[0-9]*">
+                      <input class="code" ref="codeTwo" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="tel" v-on:input="checkCode" :maxlength="max" v-model="codeTwo" pattern="[0-9]*">
+                      <input class="code" ref="codeThree" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="tel" v-on:input="checkCode" :maxlength="max" v-model="codeThree" pattern="[0-9]*">
+                      <input class="code" ref="codeFour" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="tel" v-on:input="checkCode" :maxlength="max" v-model="codeFour" pattern="[0-9]*">
+                      <input class="code" ref="codeFive" v-on:keyup.enter="$event.target.nextElementSibling.focus()" autocomplete="off" type="tel" v-on:input="checkCode" :maxlength="max" v-model="codeFive" pattern="[0-9]*">
+                      <input class="code" ref="codeSix" autocomplete="off" type="tel" v-on:input="checkCode" :maxlength="max" v-model="codeSix" pattern="[0-9]*">
                     </form>
                   </div>
                 </div>
@@ -73,7 +73,7 @@
           <div class="columns is-centered">
             <div class="column is-half">
               <div class="column has-text-centered">
-                <p class="title">Hoi {{nameUser}},<br>
+                <p class="title">Beste {{nameUser}},<br>
                 <br>
                 Om jou en je collega’s te bedanken voor de mooie samenwerking afgelopen jaar willen we graag iets teruggeven in de vorm van een donatie aan een goed doel. Wij hebben drie goede doelen geselecteerd:</p>
               </div>
@@ -88,7 +88,7 @@
                       <img class="imagecharity" src="dist/assets/mamas.png">
                     </figure>
                   </div>
-                  <p>Kinderfonds MAMAS steunt de MAMAS van Zuid-Afrika: sterke, indrukwekkende vrouwen die opstaan voor kinderen in ernstige armoede. Deze vrouwen organiseren zelf dagelijkse zorg, bescherming, eten, warmte en liefde voor nu al 50.000 kinderen in 50 prachtige projecten.</p>
+                  <p>Er gebeurt iets heel bijzonders in Zuid-Afrika. Gewone, lokale vrouwen zien de extreme armoede waar vooral kinderen de dupe van worden en zorgen voor opvang, scholing, medicatie én liefde. Alles wat nodig is om een kind gezond en kansrijk groot te laten worden. Samen vormen de MAMAS de Beweging van Hoop die Zuid-Afrika structureel van onderaf verandert. Verspreid over 50 indrukwekkende projecten in Zuid-Afrika, bereiken de MAMAS nu al meer dan 50.000 kinderen. Kinderfonds MAMAS steunt hen. Want MAMA POWER werkt!</p>
                   <a @click="giveVoteOptionOne()" class="button is-primary m-t-lg m-b-md">Doneer €50,-</a>
                 </div> 
                 <div class="column votecolumn">
@@ -126,11 +126,13 @@
                   </figure>
                 </div>
                 <div class="column is-three-quarters">
-                  <p class="title">Bedankt voor je donatie aan {{this.isCharity}}.<br>
-                  <br>
-                  Begin januari laten we jullie weten hoeveel er gestort is naar elk goed doel.<br>
-                  <br>
-                  Namens de goede doelen en het hele ZIGT team wensen wij jullie fijne feestdagen en een succesvol 2019!</p>
+                  <p>Bedankt voor je donatie aan {{this.isCharity}}.<br>
+                  Begin januari laten we jullie weten hoeveel er gestort is naar elk goed doel.</p>
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column is-full endblock m-t-lg">
+                  <b class="end">Namens de goede doelen en het hele ZIGT team wensen wij jullie fijne feestdagen en een succesvol 2019!</b>
                 </div>
               </div>
             </div>
@@ -141,11 +143,11 @@
       <div class="social">
         <a href="https://www.facebook.com/MediabureauZIGT" target="_blank" rel="noopener noreferrer"><img src="dist/assets/F_icon.svg"></a>
         <a href="https://twitter.com/MediabureauZIGT" target="_blank" rel="noopener noreferrer"><img src="dist/assets/Twitter_Bird.svg"></a>
-        <a href="https://www.instagram.com/explore/locations/1028063320/zigt-mediabureau" target="_blank" rel="noopener noreferrer"><img src="dist/assets/instagram.svg"></a>
+        <a href="https://www.instagram.com/mediabureauzigt/" target="_blank" rel="noopener noreferrer"><img src="dist/assets/insta.svg"></a>
       </div>
 
       <div class="zigtstudio">
-        <a href="https://github.com/Volumed/ZIGT-Kerst" target="_blank" rel="noopener noreferrer"><img src="dist/assets/github.svg"></a> Door <a href="https://zigtstudio.nl/" target="_blank" rel="noopener noreferrer">ZIGT Studio</a>
+        Door <a href="https://zigtstudio.nl/" target="_blank" rel="noopener noreferrer">ZIGT Studio</a>
       </div>
     </section>
   </div>
@@ -182,24 +184,60 @@
         charityImg: null
       }
     },
+    watch: {
+      codeOne: function (val) {
+        if (val != '') {
+          this.$refs.codeTwo.focus();
+        }
+      },
+      codeTwo: function (val) {
+        if (val != '') {
+          this.$refs.codeThree.focus();
+        }
+      },
+      codeThree: function (val) {
+        if (val != '') {
+          this.$refs.codeFour.focus();
+        }
+      },
+      codeFour: function (val) {
+        if (val != '') {
+          this.$refs.codeFive.focus();
+        }
+      },
+      codeFive: function (val) {
+        if (val != '') {
+          this.$refs.codeSix.focus();
+        }
+      }
+    },
     methods: {
       checkCode() {
+
           if (this.codeOne && this.codeTwo && this.codeThree && this.codeFour && this.codeFive && this.codeSix) {
 
             this.loading = true;
 
             this.entireCode = this.codeOne + this.codeTwo + this.codeThree + this.codeFour + this.codeFive + this.codeSix;
-            axios.get(`../../checkCode.php?code=${this.entireCode}&timestamp=${new Date().getTime()}`)
+            axios.get(`./checkCode.php?code=${this.entireCode}&timestamp=${new Date().getTime()}`)
             .then((response)  =>  {
               this.loading = false;
               if(response.data.code == 200) {
-                if(response.data.data.voted == true) {
+                if(response.data.data.voted == 1) {
                   this.codeUsed(true);
                 } else {
                   this.isError = false;
                   this.codePage = false;
                   this.votePage = true;
                   this.nameUser = response.data.data.name;
+
+                  this.$refs.codeOne.blur();
+                  this.$refs.codeTwo.blur();
+                  this.$refs.codeThree.blur();
+                  this.$refs.codeFour.blur();
+                  this.$refs.codeFive.blur();
+                  this.$refs.codeSix.blur();
+
                   window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -257,7 +295,7 @@
       },
       giveVoteOptionOne() {
           this.loading = true;
-          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=0&timestamp=${new Date().getTime()}`)
+          axios.get(`./voteCode.php?code=${this.entireCode}&charity=1&timestamp=${new Date().getTime()}`)
           .then((response)  =>  {
             this.loading = false;
             if (response.data.code == 200) {
@@ -273,7 +311,7 @@
       },
       giveVoteOptionTwo() {
           this.loading = true;
-          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=1&timestamp=${new Date().getTime()}`)
+          axios.get(`./voteCode.php?code=${this.entireCode}&charity=2&timestamp=${new Date().getTime()}`)
           .then((response)  =>  {
             this.loading = false;
             if (response.data.code == 200) {
@@ -289,7 +327,7 @@
       },
       giveVoteOptionThree() {
           this.loading = true;
-          axios.get(`../../voteCode.php?code=${this.entireCode}&charity=2&timestamp=${new Date().getTime()}`)
+          axios.get(`./voteCode.php?code=${this.entireCode}&charity=3&timestamp=${new Date().getTime()}`)
           .then((response)  =>  {
             this.loading = false;
             if (response.data.code == 200) {
